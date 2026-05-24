@@ -180,7 +180,7 @@ function initPassword() {
     if (pwInput === PASSWORD) {
       playUnlockAnimation();
     } else {
-      errorEl.textContent = "That's not it, my love… try again 💔";
+      errorEl.textContent = "Ath alla, something realted to brithday 💔";
       shakeDots();
       pwInput = "";
       setTimeout(() => {
