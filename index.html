@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A0A0A" />
+  <title>Happy Birthday, My Love 🌹</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>" />
+</head>
+
+<body>
+
+<!-- ── Floating Hearts Canvas (fixed bg) ── -->
+<canvas id="hearts-canvas"></canvas>
+
+<!-- ── Music Toggle ── -->
+<button id="music-btn" aria-label="Toggle music" title="Toggle music">♪</button>
+
+<!-- ── Unlock Overlay ── -->
+<div id="unlock-overlay" class="unlock-overlay">
+  <div class="unlock-text">
+    🌹 Welcome, my love...<br>
+    <span style="font-size:0.55em; opacity:0.8;">opening your gift</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     LOADING SCREEN
+     ══════════════════════════════════════ -->
+<div id="loading-screen">
+  <div class="loader-heart">
+    <div class="loader-heart-fill"></div>
+  </div>
+  <p class="loader-text">preparing something special for you…</p>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PASSWORD SECTION
+     ══════════════════════════════════════ -->
+<section id="password-section">
+  <div class="pw-card">
+    <span class="lock-icon">🔐</span>
+    <h2 class="pw-title">This is only for you</h2>
+    <p class="pw-subtitle">Enter our special 4-digit code to unlock</p>
+
+    <!-- Dots indicator -->
+    <div class="pw-dots">
+      <div class="pw-dot"></div>
+      <div class="pw-dot"></div>
+      <div class="pw-dot"></div>
+      <div class="pw-dot"></div>
+    </div>
+
+    <!-- Keypad -->
+    <div class="pw-keypad">
+      <button class="pw-key" data-val="1">1</button>
+      <button class="pw-key" data-val="2">2</button>
+      <button class="pw-key" data-val="3">3</button>
+      <button class="pw-key" data-val="4">4</button>
+      <button class="pw-key" data-val="5">5</button>
+      <button class="pw-key" data-val="6">6</button>
+      <button class="pw-key" data-val="7">7</button>
+      <button class="pw-key" data-val="8">8</button>
+      <button class="pw-key" data-val="9">9</button>
+      <button class="pw-key pw-key zero" data-val="0">0</button>
+      <button class="pw-key pw-key special" data-val="del">⌫</button>
+    </div>
+
+    <!-- Error -->
+    <p class="pw-error" id="pw-error"></p>
+    <p class="pw-hint">hint: the day we became us 💌</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT (hidden until unlocked)
+     ══════════════════════════════════════ -->
+<div id="main-content" style="display:none;">
+
+  <!-- ── BIRTHDAY SECTION ── -->
+  <section id="birthday-section">
+    <div class="bday-bg-text" aria-hidden="true">Birthday</div>
+
+    <p class="bday-label">🌹 Today is your day</p>
+
+    <h1 class="bday-main">
+      Happy<br>
+      <em>Birthday</em>
+    </h1>
+
+    <p class="bday-name">Diana ✨</p>
+
+    <div class="bday-divider"></div>
+
+    <p class="bday-sub">
+      "Every year you exist makes the world<br>
+      a more beautiful place."
+    </p>
+
+    <div class="bday-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ── MESSAGE SECTION ── -->
+  <section id="message-section">
+    <div class="message-section-bg"></div>
+    <div class="message-card">
+      <span class="message-quote-mark" data-aos="fade-in" data-aos-duration="600">"</span>
+      <p class="message-text" data-aos="fade-up" data-aos-delay="100">
+        There are people who come into your life<br>
+        and change the colour of everything —<br><br>
+        <strong>you</strong> are one of those people.<br><br>
+
+        You carry warmth the way the sun carries light —<br>
+        <em>without trying, without knowing,</em><br>
+        simply by being there.<br><br>
+
+        On this day, and every day after,<br>
+        I hope you feel just how deeply,<br>
+        <strong>wildly, completely</strong> loved you are.
+      </p>
+      <p class="message-signature" data-aos="fade-up" data-aos-delay="300">
+        — always yours 🌹
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GALLERY SECTION
+       ══════════════════════════════════════ -->
+  <section id="gallery-section">
+
+    <!-- ── FRAME 1 ── -->
+    <div class="photo-frame">
+      <div class="polaroid" style="transform: rotate(-2deg);" data-aos="zoom-in" data-aos-duration="900">
+        <!-- REPLACE src with your image path e.g. assets/images/photo1.jpg -->
+        <div class="photo-placeholder">🌹</div>
+        <!-- <img src="assets/images/photo1.jpg" alt="Us" class="polaroid-img" /> -->
+        <span class="polaroid-caption">my favourite smile</span>
+      </div>
+      <div class="frame-quote" data-aos="fade-up" data-aos-delay="200">
+        <p>"You make ordinary moments feel like they belong in a film."</p>
+      </div>
+    </div>
+
+    <!-- ── FRAME 2 ── -->
+    <div class="photo-frame">
+      <div class="polaroid" style="transform: rotate(1.8deg);" data-aos="zoom-in" data-aos-duration="900">
+        <div class="photo-placeholder">💫</div>
+        <!-- <img src="assets/images/photo2.jpg" alt="Memory" class="polaroid-img" /> -->
+        <span class="polaroid-caption">a moment I keep</span>
+      </div>
+      <div class="frame-quote" data-aos="fade-up" data-aos-delay="200">
+        <p>"I have loved you in a thousand quiet ways<br>and I'll keep finding more."</p>
+        <span class="quote-attr">— for you, always</span>
+      </div>
+    </div>
+
+    <!-- ── FRAME 3 ── -->
+    <div class="photo-frame">
+      <div class="polaroid" style="transform: rotate(-1.2deg);" data-aos="zoom-in" data-aos-duration="900">
+        <div class="photo-placeholder">🌙</div>
+        <!-- <img src="assets/images/photo3.jpg" alt="Memory" class="polaroid-img" /> -->
+        <span class="polaroid-caption">stargazing with you</span>
+      </div>
+      <div class="frame-quote" data-aos="fade-up" data-aos-delay="200">
+        <p>"Every star up there is just a reason I'm grateful you exist."</p>
+      </div>
+    </div>
+
+    <!-- ── FRAME 4 ── -->
+    <div class="photo-frame">
+      <div class="polaroid" style="transform: rotate(2.2deg);" data-aos="zoom-in" data-aos-duration="900">
+        <div class="photo-placeholder">🎂</div>
+        <!-- <img src="assets/images/photo4.jpg" alt="Birthday" class="polaroid-img" /> -->
+        <span class="polaroid-caption">celebrating you</span>
+      </div>
+      <div class="frame-quote" data-aos="fade-up" data-aos-delay="200">
+        <p>"Being born was the greatest thing you ever did for me."</p>
+        <span class="quote-attr">— happiest birthday 🌹</span>
+      </div>
+    </div>
+
+  </section>
+  <!-- end gallery -->
+
+  <!-- ══════════════════════════════════════
+       FINAL SECTION
+       ══════════════════════════════════════ -->
+  <section id="final-section">
+    <canvas id="confetti-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+
+    <div class="final-content">
+      <span class="final-emoji" data-aos="zoom-in">🌹</span>
+
+      <h2 class="final-title" data-aos="fade-up" data-aos-delay="100">
+        Here's to <em>you</em>,<br>my love
+      </h2>
+
+      <p class="final-message" data-aos="fade-up" data-aos-delay="250">
+        On this birthday and every one after,<br>
+        may you be wrapped in warmth,<br>
+        lifted by love, and reminded<br>
+        that you are someone truly extraordinary.<br><br>
+        I am so glad you were born.<br>
+        I am so glad you are mine.
+      </p>
+
+      <p class="final-signature" data-aos="fade-up" data-aos-delay="400">
+        With all my heart 💌
+      </p>
+
+      <button class="replay-btn" data-aos="fade-up" data-aos-delay="550" onclick="replay()">
+        ↺ &nbsp; Replay this gift
+      </button>
+    </div>
+  </section>
+
+</div>
+<!-- end main-content -->
+
+<!-- ── Scripts ── -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
