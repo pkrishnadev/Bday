@@ -3,7 +3,7 @@
    ========================================= */
 
 // ── Config ──────────────────────────────
-const PASSWORD = "0214"; // Default: Valentine's date — CHANGE THIS
+const PASSWORD = "2225"; // Default: Valentine's date — CHANGE THIS
 const MUSIC_SRC = "assets/music/bg.mp3"; // Place your mp3 here
 
 // ── State ────────────────────────────────
